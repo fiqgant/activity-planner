@@ -36,6 +36,8 @@ function parseFromDataSheet(ws: ExcelJS.Worksheet): Activity[] {
     const durationStr = row.getCell(6).text?.toString().trim()
     const priorityStr = row.getCell(7).text?.toString().trim()
     const pic = row.getCell(8).text?.toString().trim() || ""
+    const budget = row.getCell(9).text?.toString().trim() || undefined
+    const note = row.getCell(10).text?.toString().trim() || undefined
 
     if (!name || !startDateStr || !endDateStr) return
 
@@ -56,6 +58,8 @@ function parseFromDataSheet(ws: ExcelJS.Worksheet): Activity[] {
       duration,
       priority,
       pic,
+      budget,
+      note,
     })
   })
 

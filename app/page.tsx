@@ -9,11 +9,12 @@ import { GanttChart } from "@/components/gantt-chart"
 import { GuidePanel } from "@/components/guide-panel"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { generateActivityPlan, type Activity, type GeneratorInput } from "@/lib/generator"
+import { generateActivityPlan, type Activity, type GeneratorInput, type PlanInfo } from "@/lib/generator"
 import { parseExcelActivities } from "@/lib/excel-import"
 
 export default function Home() {
   const [activities, setActivities] = useState<Activity[]>([])
+  const [planInfo, setPlanInfo] = useState<PlanInfo>({ team: "", business: "", brand: "", goals: "" })
   const [hasActivities, setHasActivities] = useState(false)
   const [isImporting, setIsImporting] = useState(false)
   const [activeTab, setActiveTab] = useState("guide")
@@ -90,18 +91,20 @@ export default function Home() {
 
       <main className="container mx-auto px-4 py-6 flex-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <aside className="lg:col-span-3">
+          <aside className="lg:col-span-3 order-2 lg:order-1">
             <div className="lg:sticky lg:top-6">
               <FormInput
                 activities={activities}
+                planInfo={planInfo}
                 onAddActivity={handleAddActivity}
                 onRemoveActivity={handleRemoveActivity}
                 onGenerateAuto={handleGenerateAuto}
+                onPlanInfoChange={setPlanInfo}
               />
             </div>
           </aside>
 
-          <section className="lg:col-span-9">
+          <section className="lg:col-span-9 order-1 lg:order-2">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                 <TabsList className="mb-4">
                   <TabsTrigger value="activities" className="flex items-center gap-2">
@@ -121,6 +124,7 @@ export default function Home() {
                 <TabsContent value="activities">
                   <ActivityTable
                     activities={activities}
+                    planInfo={planInfo}
                     onDelete={handleRemoveActivity}
                     onUpdate={handleUpdateActivity}
                     onImport={handleImportActivities}
