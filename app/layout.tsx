@@ -6,6 +6,10 @@ import { Analytics } from "@vercel/analytics/react"
 export const metadata: Metadata = {
   title: "Business Activity Plan Generator",
   description: "Generate activity plans for your business with ease",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+  },
 }
 
 export default function RootLayout({
