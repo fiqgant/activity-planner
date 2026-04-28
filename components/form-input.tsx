@@ -51,6 +51,7 @@ export function FormInput({
   const [newPriority, setNewPriority] = useState<Priority>("medium")
   const [newPic, setNewPic] = useState("")
   const [newBudget, setNewBudget] = useState("")
+  const [newTarget, setNewTarget] = useState("")
   const [newNote, setNewNote] = useState("")
 
   const handleAutoSubmit = (e: React.FormEvent) => {
@@ -76,6 +77,7 @@ export function FormInput({
       startDate: start, endDate: end, duration,
       priority: newPriority, pic: newPic,
       budget: newBudget || undefined,
+      target: newTarget || undefined,
       note: newNote || undefined,
     })
     setNewName(""); setNewCategory(""); setNewStartDate("")
@@ -191,6 +193,11 @@ export function FormInput({
                   <Label className="text-xs" htmlFor="newBudget">Budget</Label>
                   <Input id="newBudget" value={newBudget} onChange={(e) => setNewBudget(e.target.value)}
                     placeholder="Rp 500.000" className="h-8 text-sm" />
+                </div>
+                <div className="space-y-1">
+                  <Label className="text-xs" htmlFor="newTarget">Target</Label>
+                  <Input id="newTarget" value={newTarget} onChange={(e) => setNewTarget(e.target.value)}
+                    placeholder="50 pcs/minggu" className="h-8 text-sm" />
                 </div>
                 <div className="space-y-1">
                   <Label className="text-xs" htmlFor="newNote">Note</Label>

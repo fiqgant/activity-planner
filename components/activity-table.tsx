@@ -95,6 +95,7 @@ export function ActivityTable({ activities, planInfo, onDelete, onUpdate, onImpo
       pic: activity.pic,
       budget: activity.budget ?? "",
       note: activity.note ?? "",
+      target: activity.target ?? "",
     })
   }
 
@@ -119,6 +120,7 @@ export function ActivityTable({ activities, planInfo, onDelete, onUpdate, onImpo
       pic: editForm.pic,
       budget: (editForm.budget as string) || undefined,
       note: (editForm.note as string) || undefined,
+      target: (editForm.target as string) || undefined,
     }
     onUpdate?.(updated)
     setEditingId(null)
@@ -223,6 +225,7 @@ export function ActivityTable({ activities, planInfo, onDelete, onUpdate, onImpo
                   </button>
                 </th>
                 <th className="text-left py-3 px-2 font-medium hidden md:table-cell">Budget</th>
+                <th className="text-left py-3 px-2 font-medium hidden md:table-cell">Target</th>
                 <th className="text-left py-3 px-2 font-medium hidden md:table-cell">Note</th>
                 <th className="text-left py-3 px-2 font-medium">
                   <button className="flex items-center hover:text-primary transition-colors" onClick={() => handleSort("startDate")}>
@@ -290,6 +293,14 @@ export function ActivityTable({ activities, planInfo, onDelete, onUpdate, onImpo
                         <Input value={(editForm.budget as string) || ""} onChange={(e) => setEditForm({ ...editForm, budget: e.target.value })} className="h-8 text-sm" placeholder="Budget" />
                       ) : (
                         <span className="text-xs text-muted-foreground">{activity.budget || "—"}</span>
+                      )}
+                    </td>
+
+                    <td className="py-2 px-2 hidden md:table-cell">
+                      {isEditing ? (
+                        <Input value={(editForm.target as string) || ""} onChange={(e) => setEditForm({ ...editForm, target: e.target.value })} className="h-8 text-sm" placeholder="Target" />
+                      ) : (
+                        <span className="text-xs text-muted-foreground">{activity.target || "—"}</span>
                       )}
                     </td>
 
