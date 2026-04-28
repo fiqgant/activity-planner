@@ -36,6 +36,12 @@ export default function Home() {
     const generated = generateActivityPlan(input)
     setActivities(generated)
     setHasActivities(true)
+    setPlanInfo((prev) => ({
+      team: prev.team || "WBI PRIDE",
+      business: prev.business || "Nama Guild Kamu",
+      brand: prev.brand || "Nama Usaha",
+      goals: prev.goals || "Membangun awareness produk baru",
+    }))
   }
 
   const handleUpdateActivity = (updatedActivity: Activity) => {

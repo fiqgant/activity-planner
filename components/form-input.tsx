@@ -127,7 +127,7 @@ export function FormInput({
               <Label className="text-xs" htmlFor="goals">Goals</Label>
               <Textarea id="goals" value={planInfo.goals}
                 onChange={(e) => onPlanInfoChange({ ...planInfo, goals: e.target.value })}
-                placeholder="Target atau tujuan utama periode ini"
+                placeholder="Contoh: Membangun awareness produk baru"
                 rows={2} className="resize-none text-sm" />
             </div>
           </CardContent>
