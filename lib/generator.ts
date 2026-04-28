@@ -53,6 +53,7 @@ const ACTIVITY_POOLS: Record<string, { name: string; defaultDuration: number; pr
     { name: "Membeli peralatan", defaultDuration: 3, priority: "high", pics: ["Doni Prasetyo", "Hendra Kusuma"], budget: "Rp 500.000", note: "Sesuai kebutuhan produksi" },
     { name: "Membuat SOP produksi", defaultDuration: 4, priority: "high", pics: ["Rina Susilowati", "Doni Prasetyo"], budget: "Rp 0", note: "Dokumentasi langkah produksi" },
     { name: "Produksi 50pcs per minggu", defaultDuration: 7, priority: "high", pics: ["Rina Susilowati"], budget: "Rp 1.500.000", note: "Target konsisten tiap minggu" },
+    { name: "Target penjualan 50pcs per minggu", defaultDuration: 7, priority: "high", pics: ["Hendra Kusuma", "Rudi Hermawan"], budget: "Rp 0", note: "Monitor pencapaian tiap minggu" },
     { name: "Evaluasi laporan penjualan", defaultDuration: 2, priority: "medium", pics: ["Budi Santoso", "Rina Susilowati"], budget: "Rp 0", note: "Review pencapaian target" },
     { name: "Mengumpulkan feedback pelanggan", defaultDuration: 3, priority: "medium", pics: ["Rudi Hermawan"], budget: "Rp 0", note: "Form / chat langsung" },
   ],
