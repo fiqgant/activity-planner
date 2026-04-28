@@ -23,38 +23,38 @@ export interface PlanInfo {
   goals: string
 }
 
-const ACTIVITY_POOLS: Record<string, { name: string; defaultDuration: number; priority: Priority; pics: string[] }[]> = {
+const ACTIVITY_POOLS: Record<string, { name: string; defaultDuration: number; priority: Priority; pics: string[]; budget: string; note: string }[]> = {
   Marketing: [
-    { name: "Membuat akun media sosial sebagai channel promosi", defaultDuration: 3, priority: "high", pics: ["Mega Octavia", "Hendra Kusuma"] },
-    { name: "Mengumpulkan preferensi konsumen dalam menggunakan media sosial", defaultDuration: 3, priority: "medium", pics: ["Mega Octavia"] },
-    { name: "Membuat email khusus sesuai identitas merek", defaultDuration: 2, priority: "medium", pics: ["Mega Octavia", "Doni Prasetyo"] },
-    { name: "Membuat konten promosi di media sosial", defaultDuration: 3, priority: "high", pics: ["Mega Octavia", "Hendra Kusuma"] },
-    { name: "Merancang moodboard konten", defaultDuration: 3, priority: "medium", pics: ["Mega Octavia"] },
-    { name: "Membuat konten kalender", defaultDuration: 2, priority: "medium", pics: ["Mega Octavia", "Doni Prasetyo"] },
-    { name: "Menentukan hashtag rutin dalam postingan", defaultDuration: 2, priority: "low", pics: ["Mega Octavia"] },
-    { name: "Merancang promo khusus hari spesial", defaultDuration: 3, priority: "medium", pics: ["Mega Octavia", "Hendra Kusuma"] },
-    { name: "Membuat program giveaway mingguan", defaultDuration: 5, priority: "low", pics: ["Mega Octavia", "Hendra Kusuma"] },
-    { name: "Mengumpulkan testimoni pelanggan", defaultDuration: 3, priority: "medium", pics: ["Rudi Hermawan"] },
-    { name: "Melakukan riset pasar terhadap produk baru", defaultDuration: 5, priority: "high", pics: ["Siti Rahayu", "Budi Santoso"] },
-    { name: "Melakukan evaluasi strategi", defaultDuration: 3, priority: "medium", pics: ["Budi Santoso", "Siti Rahayu"] },
+    { name: "Membuat akun media sosial sebagai channel promosi", defaultDuration: 3, priority: "high", pics: ["Mega Octavia", "Hendra Kusuma"], budget: "Rp 0", note: "IG, TikTok, FB" },
+    { name: "Mengumpulkan preferensi konsumen dalam menggunakan media sosial", defaultDuration: 3, priority: "medium", pics: ["Mega Octavia"], budget: "Rp 0", note: "Survei Google Form" },
+    { name: "Membuat email khusus sesuai identitas merek", defaultDuration: 2, priority: "medium", pics: ["Mega Octavia", "Doni Prasetyo"], budget: "Rp 0", note: "Gmail bisnis" },
+    { name: "Membuat konten promosi di media sosial", defaultDuration: 3, priority: "high", pics: ["Mega Octavia", "Hendra Kusuma"], budget: "Rp 50.000", note: "Desain via Canva" },
+    { name: "Merancang moodboard konten", defaultDuration: 3, priority: "medium", pics: ["Mega Octavia"], budget: "Rp 0", note: "Pinterest / Canva" },
+    { name: "Membuat konten kalender", defaultDuration: 2, priority: "medium", pics: ["Mega Octavia", "Doni Prasetyo"], budget: "Rp 0", note: "Jadwal posting mingguan" },
+    { name: "Menentukan hashtag rutin dalam postingan", defaultDuration: 2, priority: "low", pics: ["Mega Octavia"], budget: "Rp 0", note: "Riset hashtag relevan" },
+    { name: "Merancang promo khusus hari spesial", defaultDuration: 3, priority: "medium", pics: ["Mega Octavia", "Hendra Kusuma"], budget: "Rp 100.000", note: "Harbolnas, Lebaran, dll" },
+    { name: "Membuat program giveaway mingguan", defaultDuration: 5, priority: "low", pics: ["Mega Octavia", "Hendra Kusuma"], budget: "Rp 200.000", note: "Hadiah produk sendiri" },
+    { name: "Mengumpulkan testimoni pelanggan", defaultDuration: 3, priority: "medium", pics: ["Rudi Hermawan"], budget: "Rp 0", note: "Screenshot / video pendek" },
+    { name: "Melakukan riset pasar terhadap produk baru", defaultDuration: 5, priority: "high", pics: ["Siti Rahayu", "Budi Santoso"], budget: "Rp 0", note: "Analisis kompetitor" },
+    { name: "Melakukan evaluasi strategi", defaultDuration: 3, priority: "medium", pics: ["Budi Santoso", "Siti Rahayu"], budget: "Rp 0", note: "Review bulanan" },
   ],
   Keuangan: [
-    { name: "Menghitung HPP produk baru", defaultDuration: 3, priority: "high", pics: ["Lisa Permata", "Dewi Lestari"] },
-    { name: "Membuat anggaran", defaultDuration: 3, priority: "high", pics: ["Lisa Permata"] },
-    { name: "Biaya anggaran marketing", defaultDuration: 2, priority: "medium", pics: ["Lisa Permata", "Mega Octavia"] },
-    { name: "Biaya anggaran produksi", defaultDuration: 2, priority: "high", pics: ["Lisa Permata", "Rina Susilowati"] },
-    { name: "Membuat laporan penjualan mingguan", defaultDuration: 2, priority: "high", pics: ["Lisa Permata"] },
-    { name: "Mencatat seluruh pemasukan dan pengeluaran usaha setiap hari secara konsisten", defaultDuration: 1, priority: "high", pics: ["Lisa Permata", "Dewi Lestari"] },
-    { name: "Membuat form invoice", defaultDuration: 2, priority: "medium", pics: ["Lisa Permata"] },
+    { name: "Menghitung HPP produk baru", defaultDuration: 3, priority: "high", pics: ["Lisa Permata", "Dewi Lestari"], budget: "Rp 0", note: "Harga pokok produksi" },
+    { name: "Membuat anggaran", defaultDuration: 3, priority: "high", pics: ["Lisa Permata"], budget: "Rp 0", note: "Anggaran keseluruhan periode" },
+    { name: "Biaya anggaran marketing", defaultDuration: 2, priority: "medium", pics: ["Lisa Permata", "Mega Octavia"], budget: "Rp 500.000", note: "Iklan & promosi" },
+    { name: "Biaya anggaran produksi", defaultDuration: 2, priority: "high", pics: ["Lisa Permata", "Rina Susilowati"], budget: "Rp 1.000.000", note: "Bahan baku + peralatan" },
+    { name: "Membuat laporan penjualan mingguan", defaultDuration: 2, priority: "high", pics: ["Lisa Permata"], budget: "Rp 0", note: "Rekap setiap Jumat" },
+    { name: "Mencatat seluruh pemasukan dan pengeluaran usaha setiap hari secara konsisten", defaultDuration: 1, priority: "high", pics: ["Lisa Permata", "Dewi Lestari"], budget: "Rp 0", note: "Gunakan spreadsheet" },
+    { name: "Membuat form invoice", defaultDuration: 2, priority: "medium", pics: ["Lisa Permata"], budget: "Rp 0", note: "Template invoice PDF" },
   ],
   Operasional: [
-    { name: "Mencari 3 opsi supplier yang lebih affordable", defaultDuration: 5, priority: "high", pics: ["Rudi Hermawan", "Hendra Kusuma"] },
-    { name: "Membeli bahan baku", defaultDuration: 2, priority: "high", pics: ["Rudi Hermawan"] },
-    { name: "Membeli peralatan", defaultDuration: 3, priority: "high", pics: ["Doni Prasetyo", "Hendra Kusuma"] },
-    { name: "Membuat SOP produksi", defaultDuration: 4, priority: "high", pics: ["Rina Susilowati", "Doni Prasetyo"] },
-    { name: "Produksi 50pcs per minggu", defaultDuration: 7, priority: "high", pics: ["Rina Susilowati"] },
-    { name: "Evaluasi laporan penjualan", defaultDuration: 2, priority: "medium", pics: ["Budi Santoso", "Rina Susilowati"] },
-    { name: "Mengumpulkan feedback pelanggan", defaultDuration: 3, priority: "medium", pics: ["Rudi Hermawan"] },
+    { name: "Mencari 3 opsi supplier yang lebih affordable", defaultDuration: 5, priority: "high", pics: ["Rudi Hermawan", "Hendra Kusuma"], budget: "Rp 0", note: "Bandingkan harga & kualitas" },
+    { name: "Membeli bahan baku", defaultDuration: 2, priority: "high", pics: ["Rudi Hermawan"], budget: "Rp 800.000", note: "Stok 1 bulan" },
+    { name: "Membeli peralatan", defaultDuration: 3, priority: "high", pics: ["Doni Prasetyo", "Hendra Kusuma"], budget: "Rp 500.000", note: "Sesuai kebutuhan produksi" },
+    { name: "Membuat SOP produksi", defaultDuration: 4, priority: "high", pics: ["Rina Susilowati", "Doni Prasetyo"], budget: "Rp 0", note: "Dokumentasi langkah produksi" },
+    { name: "Produksi 50pcs per minggu", defaultDuration: 7, priority: "high", pics: ["Rina Susilowati"], budget: "Rp 1.500.000", note: "Target konsisten tiap minggu" },
+    { name: "Evaluasi laporan penjualan", defaultDuration: 2, priority: "medium", pics: ["Budi Santoso", "Rina Susilowati"], budget: "Rp 0", note: "Review pencapaian target" },
+    { name: "Mengumpulkan feedback pelanggan", defaultDuration: 3, priority: "medium", pics: ["Rudi Hermawan"], budget: "Rp 0", note: "Form / chat langsung" },
   ],
 }
 
@@ -89,6 +89,8 @@ export function generateActivityPlan(input: GeneratorInput): Activity[] {
         duration: item.defaultDuration,
         priority: item.priority,
         pic,
+        budget: item.budget,
+        note: item.note,
       })
       globalIndex++
     })
