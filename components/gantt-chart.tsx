@@ -122,12 +122,15 @@ export function GanttChart({ activities }: GanttChartProps) {
         <div className="pt-2 border-t">
           <p className="text-xs text-muted-foreground mb-2">Legend - Kategori</p>
           <div className="flex flex-wrap gap-3">
-            {Object.entries(CATEGORY_COLORS).map(([category, color]) => (
-              <div key={category} className="flex items-center gap-1.5">
-                <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: color }} />
-                <span className="text-xs">{category}</span>
-              </div>
-            ))}
+            {Array.from(new Set(activities.map((a) => a.category))).map((category) => {
+              const color = CATEGORY_COLORS[category] || "#6b7280"
+              return (
+                <div key={category} className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: color }} />
+                  <span className="text-xs">{category}</span>
+                </div>
+              )
+            })}
           </div>
         </div>
 
