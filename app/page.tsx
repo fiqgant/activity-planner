@@ -85,9 +85,9 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b" style={{ backgroundColor: "#133622" }}>
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-center gap-4">
-            <div className="flex items-center gap-3 p-2 rounded-xl" style={{ backgroundColor: "#FFFFFF" }}>
+            <div className="flex items-center gap-3 px-3 py-1 rounded-xl" style={{ backgroundColor: "#FFFFFF" }}>
               <img src="/logo/wbi.png" alt="WBI" className="h-12 w-12 object-contain" />
               <img src="/logo/wbiic.png" alt="WBIIC" className="h-12 w-12 object-contain" />
             </div>
