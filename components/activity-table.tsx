@@ -152,28 +152,39 @@ export function ActivityTable({ activities, planInfo, onDelete, onUpdate, onImpo
 
   if (activities.length === 0) {
     return (
-      <Card className="h-full">
+      <Card className="h-full shadow-md shadow-black/5 border-border/60">
         <CardHeader className="flex flex-row items-center justify-between pb-4">
-          <CardTitle className="flex items-center gap-2">
-            <Calendar className="h-5 w-5" />
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Calendar className="h-5 w-5 text-primary" />
             Activity Plan
           </CardTitle>
-          <Button onClick={handleImportClick} size="sm" disabled={isImporting} style={{ backgroundColor: "#133622" }}>
-            <Upload className="h-4 w-4 mr-2" />
+          <Button onClick={handleImportClick} size="sm" disabled={isImporting} className="gap-2" style={{ backgroundColor: "#133622" }}>
+            <Upload className="h-4 w-4" />
             {isImporting ? "Importing..." : "Import Excel"}
           </Button>
           <input type="file" ref={fileInputRef} accept=".xlsx,.xls" onChange={handleFileChange} className="hidden" />
         </CardHeader>
         <CardContent>
-          <div className="text-center py-12">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
-              <Calendar className="h-8 w-8 text-muted-foreground" />
+          <div className="flex flex-col items-center justify-center py-16 text-center">
+            <div className="relative mb-5">
+              <div
+                className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-inner"
+                style={{ background: "linear-gradient(135deg, #f0f9f4 0%, #dff0e8 100%)", border: "1.5px solid #c5e3d0" }}
+              >
+                <Calendar className="h-9 w-9" style={{ color: "#133622" }} />
+              </div>
+              <div
+                className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold shadow"
+                style={{ backgroundColor: "#AC7B2E" }}
+              >+</div>
             </div>
-            <p className="text-muted-foreground mb-2">Belum ada aktivitas</p>
-            <p className="text-sm text-muted-foreground mb-6">Tambah aktivitas manual atau generate contoh dari panel kiri</p>
-            <Button onClick={handleImportClick} disabled={isImporting} style={{ backgroundColor: "#133622" }}>
-              <Upload className="h-4 w-4 mr-2" />
-              {isImporting ? "Importing..." : "Import Excel"}
+            <p className="font-semibold text-foreground mb-1">Belum ada aktivitas</p>
+            <p className="text-sm text-muted-foreground mb-6 max-w-xs">
+              Tambah aktivitas manual atau klik <span className="font-medium text-foreground">Contoh</span> di panel kiri, atau import file Excel
+            </p>
+            <Button onClick={handleImportClick} disabled={isImporting} variant="outline" className="gap-2 border-primary/30 hover:bg-primary/5">
+              <Upload className="h-4 w-4 text-primary" />
+              {isImporting ? "Importing..." : "Import dari Excel"}
             </Button>
           </div>
         </CardContent>
@@ -182,68 +193,68 @@ export function ActivityTable({ activities, planInfo, onDelete, onUpdate, onImpo
   }
 
   return (
-    <Card className="h-full">
+    <Card className="h-full shadow-md shadow-black/5 border-border/60">
       <CardHeader className="flex flex-row items-center justify-between pb-4">
-        <CardTitle className="flex items-center gap-2">
-          <Calendar className="h-5 w-5" />
+        <CardTitle className="flex items-center gap-2 text-base">
+          <Calendar className="h-5 w-5 text-primary" />
           Activity Plan
           {planInfo?.team && (
             <span className="text-sm font-normal text-muted-foreground ml-1">— {planInfo.team}</span>
           )}
         </CardTitle>
         <div className="flex items-center gap-2">
-          <Button onClick={handleImportClick} size="sm" variant="outline" disabled={isImporting}>
-            <Upload className="h-4 w-4 mr-2" />
-            {isImporting ? "Importing..." : "Import Excel"}
+          <Button onClick={handleImportClick} size="sm" variant="outline" disabled={isImporting} className="gap-1.5 border-border/70 hover:bg-muted/60">
+            <Upload className="h-3.5 w-3.5" />
+            {isImporting ? "Importing..." : "Import"}
           </Button>
-          <Button onClick={handleDownload} size="sm" variant="outline">
-            <Download className="h-4 w-4 mr-2" />
+          <Button onClick={handleDownload} size="sm" className="gap-1.5 text-white" style={{ backgroundColor: "#133622" }}>
+            <Download className="h-3.5 w-3.5" />
             Download Excel
           </Button>
         </div>
         <input type="file" ref={fileInputRef} accept=".xlsx,.xls" onChange={handleFileChange} className="hidden" />
       </CardHeader>
       <CardContent>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-lg border border-border/50">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b bg-muted/40">
-                <th className="text-left py-3 px-2 font-medium text-muted-foreground w-8">#</th>
-                <th className="text-left py-3 px-2 font-medium">
-                  <button className="flex items-center hover:text-primary transition-colors" onClick={() => handleSort("name")}>
+              <tr style={{ background: "linear-gradient(to right, #133622, #1a4a2e)" }}>
+                <th className="text-left py-3 px-2 font-medium text-emerald-100/70 w-8">#</th>
+                <th className="text-left py-3 px-2 font-medium text-white/90">
+                  <button className="flex items-center hover:text-white transition-colors" onClick={() => handleSort("name")}>
                     Aktivitas {getSortIcon("name")}
                   </button>
                 </th>
-                <th className="text-left py-3 px-2 font-medium">
-                  <button className="flex items-center hover:text-primary transition-colors" onClick={() => handleSort("category")}>
+                <th className="text-left py-3 px-2 font-medium text-white/90">
+                  <button className="flex items-center hover:text-white transition-colors" onClick={() => handleSort("category")}>
                     Kategori {getSortIcon("category")}
                   </button>
                 </th>
-                <th className="text-left py-3 px-2 font-medium">
-                  <button className="flex items-center hover:text-primary transition-colors" onClick={() => handleSort("pic")}>
+                <th className="text-left py-3 px-2 font-medium text-white/90">
+                  <button className="flex items-center hover:text-white transition-colors" onClick={() => handleSort("pic")}>
                     PIC {getSortIcon("pic")}
                   </button>
                 </th>
-                <th className="text-left py-3 px-2 font-medium hidden md:table-cell">Budget</th>
-                <th className="text-left py-3 px-2 font-medium hidden md:table-cell">Target</th>
-                <th className="text-left py-3 px-2 font-medium hidden md:table-cell">Note</th>
-                <th className="text-left py-3 px-2 font-medium">
-                  <button className="flex items-center hover:text-primary transition-colors" onClick={() => handleSort("startDate")}>
+                <th className="text-left py-3 px-2 font-medium text-white/90 hidden md:table-cell">Budget</th>
+                <th className="text-left py-3 px-2 font-medium text-white/90 hidden md:table-cell">Target</th>
+                <th className="text-left py-3 px-2 font-medium text-white/90 hidden md:table-cell">Note</th>
+                <th className="text-left py-3 px-2 font-medium text-white/90">
+                  <button className="flex items-center hover:text-white transition-colors" onClick={() => handleSort("startDate")}>
                     Mulai {getSortIcon("startDate")}
                   </button>
                 </th>
-                <th className="text-left py-3 px-2 font-medium hidden lg:table-cell">
-                  <button className="flex items-center hover:text-primary transition-colors" onClick={() => handleSort("duration")}>
+                <th className="text-left py-3 px-2 font-medium text-white/90 hidden lg:table-cell">
+                  <button className="flex items-center hover:text-white transition-colors" onClick={() => handleSort("duration")}>
                     Durasi {getSortIcon("duration")}
                   </button>
                 </th>
-                <th className="text-left py-3 px-2 font-medium">
-                  <button className="flex items-center hover:text-primary transition-colors" onClick={() => handleSort("priority")}>
+                <th className="text-left py-3 px-2 font-medium text-white/90">
+                  <button className="flex items-center hover:text-white transition-colors" onClick={() => handleSort("priority")}>
                     Prioritas {getSortIcon("priority")}
                   </button>
                 </th>
                 {(onDelete || onUpdate) && (
-                  <th className="text-left py-3 px-2 font-medium w-20 text-muted-foreground">Aksi</th>
+                  <th className="text-left py-3 px-2 font-medium text-white/70 w-20">Aksi</th>
                 )}
               </tr>
             </thead>
@@ -251,7 +262,7 @@ export function ActivityTable({ activities, planInfo, onDelete, onUpdate, onImpo
               {sortedActivities.map((activity, rowIndex) => {
                 const isEditing = editingId === activity.id
                 return (
-                  <tr key={activity.id} className={`border-b hover:bg-primary/5 transition-colors ${rowIndex % 2 === 1 ? "bg-muted/20" : ""}`}>
+                  <tr key={activity.id} className={`border-b border-border/40 hover:bg-emerald-50/60 transition-colors ${rowIndex % 2 === 1 ? "bg-muted/25" : "bg-white"}`}>
                     <td className="py-2 px-2 text-muted-foreground text-xs">{rowIndex + 1}</td>
 
                     <td className="py-2 px-2">
@@ -405,9 +416,11 @@ export function ActivityTable({ activities, planInfo, onDelete, onUpdate, onImpo
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-muted-foreground mt-4">
-          Total: {activities.length} aktivitas
-        </p>
+        <div className="flex items-center justify-between mt-4 pt-3 border-t border-border/40">
+          <p className="text-xs text-muted-foreground">
+            Total <span className="font-semibold text-foreground">{activities.length}</span> aktivitas
+          </p>
+        </div>
       </CardContent>
     </Card>
   )

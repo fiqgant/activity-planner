@@ -88,7 +88,7 @@ export function FormInput({
   return (
     <div className="space-y-3">
       {/* Info Rencana — collapsible */}
-      <Card>
+      <Card className="shadow-md shadow-black/5 border-border/60">
         <CardHeader className="pb-2 pt-4 px-4">
           <button
             type="button"
@@ -137,7 +137,7 @@ export function FormInput({
       </Card>
 
       {/* Input Aktivitas */}
-      <Card>
+      <Card className="shadow-md shadow-black/5 border-border/60">
         <CardHeader className="pb-3 pt-4 px-4">
           <CardTitle className="flex items-center gap-2 text-sm">
             <Zap className="h-4 w-4 text-primary" />
@@ -272,7 +272,7 @@ export function FormInput({
                     : activity.priority === "medium" ? "bg-yellow-500" : "bg-green-500"
                   return (
                     <div key={activity.id}
-                      className="flex items-center justify-between p-1.5 bg-muted rounded-md text-xs group"
+                      className="flex items-center justify-between p-1.5 bg-white border border-border/50 rounded-lg text-xs group hover:border-primary/30 hover:bg-emerald-50/40 transition-colors shadow-sm"
                     >
                       <div className="flex items-center gap-2 flex-1 min-w-0">
                         <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dot}`} />

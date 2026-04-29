@@ -138,10 +138,10 @@ const GOAL_GUIDE = [
 
 export function GuidePanel() {
   return (
-    <Card className="h-full">
+    <Card className="h-full shadow-md shadow-black/5 border-border/60">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <BookOpen className="h-5 w-5" />
+        <CardTitle className="flex items-center gap-2 text-base">
+          <BookOpen className="h-5 w-5 text-primary" />
           Panduan Membuat Activity Plan yang Baik
         </CardTitle>
       </CardHeader>
